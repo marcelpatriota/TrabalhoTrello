@@ -1,0 +1,85 @@
+<html>
+	<head>
+	<link href="alertify/preload/preloader.css" rel="stylesheet">
+	
+	<!-- include alertify.css -->
+	<link rel="stylesheet" href="alertify/css/alertify.css">
+	<link rel="stylesheet" href="alertify/css/microtip.css">
+	
+	<!-- include semantic ui theme  -->
+	<link rel="stylesheet" href="alertify/css/themes/semantic.css">
+
+	<!-- include alertify script -->
+	<script src="alertify/alertify.js"></script>
+
+	<script type="text/javascript">        
+	//override defaults
+	alertify.defaults.transition = "zoom";
+	alertify.defaults.theme.ok = "ui positive button";
+	alertify.defaults.theme.cancel = "ui black button";
+	</script>
+	
+	<script>
+		function alertar(){/*
+			alertify.minimalDialog || alertify.dialog('minimalDialog',function(){
+			return {
+				main:function(content){
+					this.setContent(content); 
+				}
+			};
+		});
+		alertify.minimalDialog("Olá! Como vai?");		
+		}*/
+		
+		alertify.confirm("Você está bem?",
+		function(){
+			alertify.success('Bem');
+		},
+		function(){
+			alertify.error('Mal');
+		});
+		}
+		
+		/*function toast(mensagem){
+			alertify.warning(mensagem);
+		}*/
+		
+		function toast(mensagem){
+		alertify.prompt(mensagem, "",
+		  function(evt, value ){
+			alertify.warning(value);
+		  },
+		  function(){
+			alertify.error('Cancel');
+		  })
+		  ;
+		}		  
+	</script>
+	</head>
+	<style>
+		#btalert{
+			margin-top: 300px;
+			background-color: darkgreen;
+			color: white;
+			font-size: 40px;
+			border: none;
+		}
+		#btmtip{
+			margin-top: 10px;
+			background-color: darkblue;
+			color: white;
+			font-size: 40px;
+		}
+		#btchama{
+			background-color: black;
+			color: white;
+			font-size: 40px;
+		}
+	</style>
+	<body><center>
+		<input id="btalert" type="button" onclick="alertar()" value="Bem-vindo"></input>
+		<button id="btmtip" value="microtip" aria-label="Clique nele!" data-microtip-position="down" role="tooltip">Estou aqui</button><br><br><br>
+		<input id="btchama" type="button" onclick="toast('Digite a tarefa')" value="Chamada"></input></center>
+	</body>
+	<script src="alertify/preload/preloader.js"></script>
+</html>
