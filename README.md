@@ -1,1 +1,2 @@
-# TrabalhoTrelloDescrição do projeto
+# TrabalhoTrello
+Descrição do trabalho
